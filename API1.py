@@ -19,7 +19,7 @@ def get_email_content():
         # print(i["description"])
         print(i["url"])
 
-print(get_email_content())
+# print(get_email_content())
 
 
 
