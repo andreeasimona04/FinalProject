@@ -11,15 +11,13 @@ def get_email_content():
     else:
         if response.status_code == 200:
             data = response.json()
-        else:
-            print(response.content)
-
-    for i in data["articles"]:
-        print(i["title"])
-        # print(i["description"])
-        print(i["url"])
-
+            content = []
+            for i in data["articles"]:
+                content.append((i["title"], i["url"]))
+            return content
+                
 # print(get_email_content())
+
 
 
 
