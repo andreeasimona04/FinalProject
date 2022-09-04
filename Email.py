@@ -7,9 +7,9 @@ from secrets import EMAIL_USER, EMAIL_PASS
 from API1 import get_email_content
 from db import count_emails, read_emails
 
-# ROOT = pathlib.Path(__file__).parent
-# DB_file = ROOT.joinpath("ForEmail.db")
-# conn = sqlite3.connect(DB_file)
+ROOT = pathlib.Path(__file__).parent
+DB_file = ROOT.joinpath("ForEmail.db")
+conn = sqlite3.connect(DB_file)
 
 def send_email():
     gmail_user = EMAIL_USER
@@ -38,10 +38,9 @@ def send_email():
     server.login(gmail_user, gmail_pass)
     server.sendmail(
         gmail_user,
-        gmail_user,
+        read_emails(conn),
         message.as_string()
     )
 
-send_email()
 
 

@@ -16,8 +16,8 @@ def create_user_table(con):
 
 def read_emails(con):
     cur = con.cursor()
-    r = cur.execute("""SELECT email FROM users""")
-    con.commit()
+    cur.execute("""SELECT email FROM users""")
+    r = cur.fetchall()
     return r
     
     
